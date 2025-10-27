@@ -4,6 +4,10 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "tb_user")
@@ -22,9 +26,17 @@ public class User {
     @Column(name = "user_pw", nullable = false, length = 300)
     private String userPw;
 
-    @Column(name = "user_name", nullable = false, length = 30)
-    private String userName;
-
-    @Column(name = "user_nickname", length = 10)
+    @Column(name = "user_nickname", nullable = false, length = 10)
     private String userNickname;
+
+    @CreationTimestamp
+    @Column(name = "created_at", nullable = false, updatable = false)
+    private LocalDateTime createdAt;
+
+    @UpdateTimestamp
+    @Column(name = "updated_at", nullable = false)
+    private LocalDateTime updatedAt;
+
+    @Column(name = "user_status", nullable = false, length = 1)
+    private String userStatus = "Y";
 }

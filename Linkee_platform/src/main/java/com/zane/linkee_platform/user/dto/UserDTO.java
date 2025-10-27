@@ -8,7 +8,6 @@ import lombok.Setter;
 public class UserDTO {
     private String userLoginId;
     private String userPw;
-    private String userName;
     private String userNickname;
 
     @Override
@@ -16,7 +15,6 @@ public class UserDTO {
         return "UserDTO{" +
                 "userLoginId='" + userLoginId + '\'' +
                 ", userPw='" + userPw + '\'' +
-                ", userName='" + userName + '\'' +
                 ", userNickname='" + userNickname + '\'' +
                 '}';
     }

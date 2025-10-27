@@ -13,15 +13,10 @@ import org.springframework.stereotype.Service;
 public class UserService {
     private final UserRepository userRepository;
 
-//    public UserService(UserRepository userRepository) {
-//        this.userRepository = userRepository;
-//    }
-
     public void signup(UserDTO userDTO){
         User user = new User();
         user.setUserLoginId(userDTO.getUserLoginId());
         user.setUserPw(userDTO.getUserPw());
-        user.setUserName(userDTO.getUserName());
         user.setUserNickname(userDTO.getUserNickname());
         userRepository.save(user); // DB에 저장
     }
